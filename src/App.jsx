@@ -17,7 +17,6 @@ function App() {
           <Route path='news' element={<News />} />
           <Route path='blog' element={<Blog />} />
           <Route path='contact' element={<Contact />} />
-          <Route path='faq' element={<FAQ />} />
         </Route>
       </Routes>
     </BrowserRouter> 
