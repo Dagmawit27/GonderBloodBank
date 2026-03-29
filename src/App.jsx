@@ -9,7 +9,7 @@ import Contact from './Pages/Contact'
 import FAQ from './Pages/FAQ'
 function App() {
   return(
-    <BrowserRouter>
+    <BrowserRouter basename="/GonderBloodBank">
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
