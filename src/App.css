@@ -1,0 +1,11 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: aliceblue;
+}
+*{
+  scroll-behavior: smooth;
+}
+a{
+  text-decoration: none;
+}
