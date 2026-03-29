@@ -17,8 +17,6 @@ export default function Header(){
     name: 'Blog', to: '/blog'
   },{
     name: 'Contact', to: '/contact'
-  }, {
-    name: 'FAQ', to: '/faq'
   }]
   return(
     <>
