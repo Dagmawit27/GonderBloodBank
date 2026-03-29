@@ -9,15 +9,15 @@ import Contact from './Pages/Contact'
 import FAQ from './Pages/FAQ'
 function App() {
   return(
-    <BrowserRouter>
+    <BrowserRouter basename="/GonderBloodBank">
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/news' element={<News />} />
-          <Route path='/blog' element={<Blog />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/faq' element={<FAQ />} />
+          <Route path='about' element={<About />} />
+          <Route path='news' element={<News />} />
+          <Route path='blog' element={<Blog />} />
+          <Route path='contact' element={<Contact />} />
+          <Route path='faq' element={<FAQ />} />
         </Route>
       </Routes>
     </BrowserRouter> 
