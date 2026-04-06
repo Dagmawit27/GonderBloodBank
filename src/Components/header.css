@@ -1,115 +1,315 @@
-.navbar{
+/* ── Navbar ─────────────────────────────────────────── */
+.navbar {
   width: 100%;
   height: 3.5rem;
-  margin: 0;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /*background-color: rgb(255, 240, 240);*/
   background-color: aliceblue;
   position: fixed;
-  z-index: 100;
-  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-.navbar .logo{
-  width: 4rem;
-  height: auto;
-  padding: 1rem 3rem;
-  padding-top: 2rem;
+/* ── Logo ───────────────────────────────────────────── */
+.navbar .logo {
+  width: 3.2rem;
+  flex-shrink: 0;
 }
-
-.navbar .logo img{
+.navbar .logo img {
   width: 100%;
-}
-.navbar .list{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 2.5rem;
-  margin: 0 2rem;
+  display: block;
 }
 
-.navbar .list ul{
+/* ── Desktop list ───────────────────────────────────── */
+.navbar .list {
   display: flex;
-  justify-content: space-between;
-  gap: 3rem;
-}
-.navbar .list ul li{
-  list-style: none;
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.495);
-  font-family: 'Courier New', Courier, monospace;
-  transition: all 0.8s ease;
-  font-weight: 600;
-}
-.navbar .list ul .active{
-  color: crimson;
-  text-decoration: overline;  
-}
-.navbar .list ul li:hover{
-  color: rgb(210, 39, 39);
-  font-size: 1.1rem;
-  text-decoration: overline;
-}
-.navMenu {
-  display: none;
-}
-.donate-menu{
-  display: flex;
+  align-items: center;
   gap: 2rem;
 }
+
+.navbar .list ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .list ul li {
+  font-size: 0.95rem;
+  color: rgba(0,0,0,0.5);
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  transition: color 0.3s ease, font-size 0.3s ease;
+  white-space: nowrap;
+}
+
+.navbar .list ul li.active {
+  color: crimson;
+  text-decoration: overline;
+}
+
+.navbar .list ul li:hover {
+  color: rgb(210, 39, 39);
+  font-size: 1rem;
+  text-decoration: overline;
+}
+
+/* ── Donate + Lang buttons ──────────────────────────── */
+.donate-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+}
+
 .d-button {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
   background-color: rgb(210, 39, 39);
   color: aliceblue;
   border: none;
   cursor: pointer;
   border-radius: 0.4rem;
-  padding: 0.5rem 1rem;
+  padding: 0.45rem 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.07rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.04rem;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
 }
 
-.lang-btn{
+.d-button:hover {
+  background-color: rgb(170, 20, 20);
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}
+.chevron.open {
+  transform: rotate(180deg);
+}
+
+.lang-btn {
   border: 1px solid rgb(210, 39, 39);
   color: black;
-  padding: 0.5rem 1.3rem;
-  font-size: 1rem;
+  background: transparent;
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
   border-radius: 10px;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.15rem;
   cursor: pointer;
-  transition: all 1s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
 }
 
-.lang-btn:hover{
-  font-size: 0.8rem;
+.lang-btn:hover {
+  background-color: rgb(210, 39, 39);
+  color: white;
 }
-.dm-dropdown{
+
+/* ── Hamburger ──────────────────────────────────────── */
+.navMenu {
+  display: none;
+}
+
+.navMenu button {
+  background: none;
+  border: none;
+  cursor: pointer;
   display: flex;
-  padding: 1.2rem;
-  border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 2rem;
-  gap: 2rem;
-  position: absolute;
-  top: 3.2rem;
-  right: 2rem;
-  background-color: white;
-  width: 60%;
-  z-index: 100;
-  overflow: hidden;
+  align-items: center;
+  color: rgb(210, 39, 39);
 }
-.dm-dropdown .col-dm{
+
+/* ── Donate Dropdown (desktop) ──────────────────────── */
+.dm-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background-color: white;
+  border-radius: 0.8rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+  display: flex;
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+  z-index: 199;
+  width: max-content;
+  max-width: 700px;
+  animation: fadeDown 0.2s ease;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.dm-dropdown .col-dm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 160px;
+}
+
+.col-heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: crimson;
+  margin-bottom: 0.3rem;
+}
+
+.dm-dropdown .col-dm a {
+  font-size: 0.92rem;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.25s ease;
+  white-space: nowrap;
+}
+
+.dm-dropdown .col-dm a:hover {
+  color: rgb(210, 39, 39);
+}
+
+/* ── Mobile menu ────────────────────────────────────── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 3.5rem;
+  left: 0;
+  width: 100%;
+  background-color: aliceblue;
+  z-index: 198;
+  flex-direction: column;
+  padding: 1rem 1.5rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-height: calc(100vh - 3.5rem);
+  overflow-y: auto;
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.mobile-menu.mobile-open {
+  display: flex;
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.mobile-menu ul li {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(0,0,0,0.6);
+  font-family: 'Courier New', Courier, monospace;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: color 0.2s ease;
+}
+
+.mobile-menu ul li.active {
+  color: crimson;
+}
+
+.mobile-menu ul li:hover {
+  color: rgb(210, 39, 39);
+}
+
+/* Mobile donate section */
+.mobile-donate-section {
+  margin-bottom: 1rem;
+}
+
+.mobile-donate-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgb(210, 39, 39);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  padding: 0.55rem 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.mobile-donate-links {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  align-items: start;
+  padding: 0.8rem 0.5rem;
+  background: white;
+  border-radius: 0.6rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-.dm-dropdown .col-dm a{
-  font-size: 1.1rem;
-  color: black;
-  transition: all 0.5s ease;
+
+.mobile-donate-links .col-heading {
+  display: block;
+  margin-bottom: 0.2rem;
 }
-.dm-dropdown .col-dm a:hover{
-  color: rgb(210, 39, 39);
+
+.mobile-donate-links a {
+  display: block;
+  font-size: 0.9rem;
+  color: #333;
+  text-decoration: none;
+  padding: 0.3rem 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.mobile-donate-links a:hover {
+  color: crimson;
+}
+
+.mobile-lang {
+  align-self: flex-start;
+}
+
+/* ── Responsive breakpoints ─────────────────────────── */
+@media (max-width: 900px) {
+  .navbar .list ul {
+    gap: 1.2rem;
+  }
+  .navbar .list {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar .list {
+    display: none;
+  }
+  .navMenu {
+    display: flex;
+  }
+  .dm-dropdown {
+    display: none; /* handled by mobile menu on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 1rem;
+  }
 }
