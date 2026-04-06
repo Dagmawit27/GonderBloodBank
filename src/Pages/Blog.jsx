@@ -48,7 +48,7 @@ export default function Blog() {
 
   return (
     <>
-      {/* Hero 
+      {/* Hero */}
       <section className="gallery-hero">
         <div className="gallery-hero-text">
           <h1>Photo Gallery</h1>
@@ -56,9 +56,9 @@ export default function Blog() {
         </div>
       </section>
 
-     Filter */}
+      {/* Filter */}
       
-      {/* Grid
+      {/* Grid */}
       <section className="gallery-grid-section">
         <div className="gallery-grid">
           {photos.map((photo) => (
@@ -82,7 +82,7 @@ export default function Blog() {
         </div>
       </section>
 
-       Lightbox */}{/*
+      {/* Lightbox */}
       {lightbox && (
         <div
           className="lightbox-overlay"
@@ -108,7 +108,7 @@ export default function Blog() {
             </div>
           </div>
         </div>
-      )} */}
+      )}
     </>
   );
 }
