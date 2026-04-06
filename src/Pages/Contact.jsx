@@ -127,7 +127,6 @@ export default function Contact() {
                   <option value="eligibility">Donor Eligibility</option>
                   <option value="centers">Donation Centers in Gondar</option>
                   <option value="partnership">Partnership / Volunteering</option>
-                  <option value="emergency">Emergency Blood Request</option>
                   <option value="other">Other</option>
                 </select>
               </div>

@@ -52,11 +52,10 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Our Services</h4>
           <ul>
-            <li><a href="#">Blood Banking</a></li>
-            <li><a href="#">Eye Banking</a></li>
-            <li><a href="#">Stem Cell Banking</a></li>
-            <li><a href="#">Tissue Banking</a></li>
-            <li><a href="#">Donor Registration</a></li>
+            <li>Blood Banking</li>
+            <li>Stem Cell Banking</li>
+            <li>Tissue Banking</li>
+            <li>Donor Registration</li>
           </ul>
         </div>
 
@@ -66,7 +65,7 @@ export default function Footer() {
           <ul className="footer-contact">
             <li>
               <MapPin size={15} />
-              <span>Addis Ababa, Ethiopia</span>
+              <span>Gonder, Ethiopia</span>
             </li>
             <li>
               <Phone size={15} />
@@ -86,7 +85,7 @@ export default function Footer() {
 
       {/* bottom bar */}
       <div className="footer-bottom">
-        <p>© {year} Ethiopian Blood and Tissue Bank Service. All rights reserved.</p>
+        <p>© {year} Gonder Ethiopian Blood and Tissue Bank Service. All rights reserved.</p>
         <div className="footer-bottom-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>

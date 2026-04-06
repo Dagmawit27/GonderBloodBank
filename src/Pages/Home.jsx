@@ -11,7 +11,7 @@ import news2 from '../assets/news2.jpg';
 import news3 from '../assets/news3.jpg';
 import d1 from '../assets/d1.jpg';
 import d2 from '../assets/d2.jpg';
-import d3 from '../assets/d3.jpg';
+import d3 from '../assets/d3.jpg'; 
 import d4 from '../assets/d4.webp';
 
 /* ── animated counter hook ── */

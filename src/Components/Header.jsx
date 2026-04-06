@@ -6,6 +6,7 @@ import './header.css'
 
 export default function Header(){
   const [isOpen, setIsOpen] = useState(false);
+  const [isDMenu, setDMenu] = useState(false);
   const location = useLocation();
   const page = [{
     name: 'Home', to: '/'
@@ -32,11 +33,43 @@ export default function Header(){
               </Link>
             ))}
           </ul>
-          <div className="navMenu">
+          <div className='donate-menu'>
+            <div onClick={(e)=>{setDMenu(!isDMenu)}}>
+              <button className='d-button'>Donate Blood</button>
+            </div>  
+            <div>
+              <button className='lang-btn'>Lang</button>  
+            </div>         
+          </div>
+          <div className="navMenu">            
             <button  onClick={()=>{setIsOpen(!isOpen)}}>{isOpen ? <X size={30} /> : <Menu size={30} />}</button>
           </div>
         </div>        
       </div>
+      {isDMenu && 
+      <div className="dm-dropdown">
+        <div className="col-dm">
+          <Link to={'/take'}>Manage My Donations</Link>
+          <Link to={'/take'}>Schedule an Appointment</Link>
+          <Link to={'/take'}>Manage Existing Appointment</Link>
+        </div>
+        <div className="col-dm">
+          <Link to={'/take'}>How to Donate</Link>
+          <Link to={'/take'}>Eligibility Requirements</Link>
+          <Link to={'/take'}>Types of Blood Donations</Link>
+          <Link to={'/take'}>Learn About Blood</Link>
+          <Link to={'/take'}>How Blood Donations Help</Link>
+          <Link to={'/take'}>Comment Concerns</Link>
+        </div>
+        <div className="col-dm">
+          <Link to={'/take'}>Blood Donation Process</Link>
+          <Link to={'/take'}>Donation Process Overview</Link>
+          <Link to={'/take'}>What to do Before, During and After</Link>
+          <Link to={'/take'}>What Happens to Donated Blood</Link>
+          <Link to={'/take'}>Iron and Blood Donation</Link>
+        </div>
+      </div>
+      }
     </>
   );
 }

@@ -7,9 +7,11 @@ import News from './Pages/News'
 import Blog from './Pages/Blog'
 import Contact from './Pages/Contact'
 import FAQ from './Pages/FAQ'
+import ScrollToTop from './Pages/ScrollToTop'
 function App() {
   return(
     <BrowserRouter basename="/GonderBloodBank">
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />

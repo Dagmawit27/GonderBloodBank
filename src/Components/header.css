@@ -56,3 +56,60 @@
 .navMenu {
   display: none;
 }
+.donate-menu{
+  display: flex;
+  gap: 2rem;
+}
+.d-button {
+  background-color: rgb(210, 39, 39);
+  color: aliceblue;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  letter-spacing: 0.07rem;
+}
+
+.lang-btn{
+  border: 1px solid rgb(210, 39, 39);
+  color: black;
+  padding: 0.5rem 1.3rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  letter-spacing: 0.2rem;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.lang-btn:hover{
+  font-size: 0.8rem;
+}
+.dm-dropdown{
+  display: flex;
+  padding: 1.2rem;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  gap: 2rem;
+  position: absolute;
+  top: 3.2rem;
+  right: 2rem;
+  background-color: white;
+  width: 60%;
+  z-index: 100;
+  overflow: hidden;
+}
+.dm-dropdown .col-dm{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: start;
+}
+.dm-dropdown .col-dm a{
+  font-size: 1.1rem;
+  color: black;
+  transition: all 0.5s ease;
+}
+.dm-dropdown .col-dm a:hover{
+  color: rgb(210, 39, 39);
+}
