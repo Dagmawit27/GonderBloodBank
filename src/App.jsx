@@ -1,6 +1,6 @@
 import './App.css'
 import Layout from './Layout/Layout'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter , Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home'
 import About from './Pages/About'
 import News from './Pages/News'
@@ -10,7 +10,7 @@ import FAQ from './Pages/FAQ'
 import ScrollToTop from './Pages/ScrollToTop'
 function App() {
   return(
-    <BrowserRouter basename="/GonderBloodBank">
+    <HashRouter  basename="/GonderBloodBank">
       <ScrollToTop />
       <Routes>
         <Route path='/' element={<Layout />}>
@@ -22,7 +22,7 @@ function App() {
           <Route path='faq' element={<FAQ />} /> 
         </Route>
       </Routes>
-    </BrowserRouter> 
+    </HashRouter > 
 )
 }
 
