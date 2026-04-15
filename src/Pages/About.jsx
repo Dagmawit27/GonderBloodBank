@@ -71,9 +71,30 @@ export default function About() {
     <>
       {/* Hero */}
       <section className="about-hero">
-        <div className="about-hero-content">
-          <h1>About Us</h1>
-          <p>Gondar Blood and Tissue Bank Service — saving lives since 1969</p>
+        <div className="badge fade-in">
+          <span className="dot"></span>
+          <span className="badge-text">About Gondar Blood Bank</span>
+        </div>
+
+        <h1 className="hero-title fade-in">
+          Pure intentions. <br/>
+          Strong clinical care. <br/>
+          <span className="highlight">Saving lives.</span>
+        </h1>
+
+        <p className="hero-text fade-in delay-1">
+          Gondar Blood Bank helps our community bridge the gap between medical need and life-saving supply with precision, safety, and unwavering commitment. We are a specialized medical team dedicated to supporting local hospitals.
+        </p>
+
+        <div className="hero-buttons fade-in delay-2">
+          <button className="btn-primary">
+            Donate Now
+            <span className="arrow">→</span>
+          </button>
+
+          <button className="btn-secondary">
+            View Impact
+          </button>
         </div>
       </section>
 

@@ -1,121 +1,179 @@
-import { useState, useRef, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/blood-logo.png';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, User, Settings, LogOut, LayoutDashboard } from 'lucide-react';
 import './header.css';
 
+const donateGroups = [
+  {
+    heading: 'Service',
+    links: [
+      { label: 'Our Service',       to: '/service' },
+      { label: 'About Us',    to: '/about' },
+      { label: 'Contact',    to: '/contact'}
+    ],
+  },
+  {
+    heading: 'My Donations',
+    links: [
+      { label: 'Manage My Donations',        to: '/manage-donations' },
+      { label: 'Schedule an Appointment',    to: '/make-appointment' },
+      { label: 'Manage Existing Appointment',to: '/manage-appointment' },
+    ],
+  },
+  {
+    heading: 'Learn',
+    links: [
+      { label: 'How to Donate',           to: '/how-to-donate' },
+      { label: 'Eligibility Requirements',to: '/eligibility' },
+      { label: 'Types of Blood Donations',to: '/types-of-donations' },
+      { label: 'Learn About Blood',       to: '/learn-about-blood' },
+      { label: 'How Blood Donations Help',to: '/how-donations-help' },
+      { label: 'Comment Concerns',        to: '/comment-concerns' },
+    ],
+  },
+  {
+    heading: 'The Process',
+    links: [
+      { label: 'Blood Donation Process',       to: '/donation-process' },
+      { label: 'Donation Process Overview',    to: '/process-overview' },
+      { label: 'Before, During and After',     to: '/before-during-after' },
+      { label: 'What Happens to Donated Blood',to: '/what-happens' },
+      { label: 'Iron and Blood Donation',      to: '/iron-donation' },
+    ],
+  },
+  {
+    heading: 'News',
+    links: [
+      { label: 'Update News',       to: '/news' },
+      { label: 'Blog',    to: '/blog' },
+    ],
+  },
+];
+
+
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isDMenu, setDMenu] = useState(false);
-  const location = useLocation();
-  const dropdownRef = useRef(null);
+  const [isOpen, setIsOpen]       = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(null);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const [user, setUser]           = useState(null);
+  const location  = useLocation();
+  const navigate  = useNavigate();
+  const profileRef = useRef(null);
 
   const pages = [
-    { name: 'Home', to: '/' },
+    { name: 'Service',     to: '/service' },
     { name: 'About Us', to: '/about' },
-    { name: 'News', to: '/news' },
-    { name: 'Blog', to: '/blog' },
-    { name: 'Contact', to: '/contact' },
+    { name: 'Contact',  to: '/contact' },
   ];
 
-  const donateLinks = [
-    {
-      heading: 'My Donations',
-      links: [
-        { label: 'Manage My Donations', to: '/take' },
-        { label: 'Schedule an Appointment', to: '/take' },
-        { label: 'Manage Existing Appointment', to: '/take' },
-      ],
-    },
-    {
-      heading: 'Learn',
-      links: [
-        { label: 'How to Donate', to: '/take' },
-        { label: 'Eligibility Requirements', to: '/take' },
-        { label: 'Types of Blood Donations', to: '/take' },
-        { label: 'Learn About Blood', to: '/take' },
-        { label: 'How Blood Donations Help', to: '/take' },
-        { label: 'Comment Concerns', to: '/take' },
-      ],
-    },
-    {
-      heading: 'The Process',
-      links: [
-        { label: 'Blood Donation Process', to: '/take' },
-        { label: 'Donation Process Overview', to: '/take' },
-        { label: 'Before, During and After', to: '/take' },
-        { label: 'What Happens to Donated Blood', to: '/take' },
-        { label: 'Iron and Blood Donation', to: '/take' },
-      ],
-    },
-  ];
-
-  // Close dropdown when clicking outside
+  // Sync user from sessionStorage on every route change
   useEffect(() => {
-    function handleClickOutside(e) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setDMenu(false);
+    const username = sessionStorage.getItem('username');
+    const email    = sessionStorage.getItem('email');
+    setUser(username ? { username, email } : null);
+    setIsOpen(false);
+    setMobileOpen(null);
+    setProfileOpen(false);
+  }, [location.pathname]);
+
+  // Close profile dropdown on outside click
+  useEffect(() => {
+    function handleOutside(e) {
+      if (profileRef.current && !profileRef.current.contains(e.target)) {
+        setProfileOpen(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleOutside);
+    return () => document.removeEventListener('mousedown', handleOutside);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsOpen(false);
-    setDMenu(false);
-  }, [location.pathname]);
+  const handleLogout = () => {
+    sessionStorage.clear();
+    setUser(null);
+    setProfileOpen(false);
+    navigate('/');
+  };
+
+  const toggleMobileGroup = (i) =>
+    setMobileOpen(mobileOpen === i ? null : i);
+
+  // Avatar initials
+  const initials = user?.username
+    ? user.username.slice(0, 2).toUpperCase()
+    : '';
 
   return (
     <>
       <div className="navbar">
-        <div className="logo">
-          <Link to="/"><img src={logo} alt="Blood Logo" /></Link>
+        <div className="logo-wrap">
+          <div className="logo">
+            <Link to="/"><img src={logo} alt="Blood Logo" /></Link>
+          </div>
+          <div className='logo-text'>
+            <span >Gondar</span>
+            <p>Blood Bank Service</p>
+          </div>
         </div>
+        
 
         {/* Desktop nav */}
-        <div className="list">
+        <nav className="list">
           <ul>
-            {pages.map((item, index) => (
-              <Link to={item.to} key={index}>
-                <li className={location.pathname === item.to ? 'active' : ''}>
-                  {item.name}
-                </li>
-              </Link>
+            {donateGroups.map((group, i) => (
+              <li className="nav-dropdown-item" key={`dg-${i}`}>
+                <span className= "nav-dropdown-trigger" >
+                  {group.heading} <ChevronDown size={13} className="chevron" />
+                </span>
+                <div className="nav-dropdown-panel">
+                  {group.links.map((link, j) => (
+                    <Link to={link.to} key={j}>{link.label}</Link>
+                  ))}
+                </div>
+              </li>
             ))}
           </ul>
 
-          <div className="donate-menu">
-            <div ref={dropdownRef} style={{ position: 'relative' }}>
+          {/* Auth area */}
+          {user ? (
+            <div className="profile-wrap" ref={profileRef}>
               <button
-                className="d-button"
-                onClick={() => setDMenu(!isDMenu)}
-                aria-expanded={isDMenu}
-                aria-haspopup="true"
+                className="avatar-btn"
+                onClick={() => setProfileOpen(!profileOpen)}
+                aria-expanded={profileOpen}
               >
-                Donate Blood <ChevronDown size={16} className={`chevron ${isDMenu ? 'open' : ''}`} />
+                <span className="avatar">{initials}</span>
+                <span className="avatar-name">{user.username}</span>
+                <ChevronDown size={14} className={`chevron ${profileOpen ? 'open' : ''}`} />
               </button>
 
-              {/* Donate dropdown — desktop */}
-              {isDMenu && (
-                <div className="dm-dropdown">
-                  {donateLinks.map((col, i) => (
-                    <div className="col-dm" key={i}>
-                      <span className="col-heading">{col.heading}</span>
-                      {col.links.map((link, j) => (
-                        <Link to={link.to} key={j} onClick={() => setDMenu(false)}>
-                          {link.label}
-                        </Link>
-                      ))}
+              {profileOpen && (
+                <div className="profile-dropdown">
+                  <div className="profile-info">
+                    <span className="avatar lg">{initials}</span>
+                    <div>
+                      <strong>{user.username}</strong>
+                      <small>{user.email}</small>
                     </div>
-                  ))}
+                  </div>
+                  <div className="profile-divider" />
+                  <Link to="/profile" className="profile-link" onClick={() => setProfileOpen(false)}>
+                    <LayoutDashboard size={15} /> My Dashboard
+                  </Link>
+                  <Link to="/settings" className="profile-link" onClick={() => setProfileOpen(false)}>
+                    <Settings size={15} /> Settings
+                  </Link>
+                  <div className="profile-divider" />
+                  <button className="profile-logout" onClick={handleLogout}>
+                    <LogOut size={15} /> Logout
+                  </button>
                 </div>
               )}
             </div>
-            <button className="lang-btn">Lang</button>
-          </div>
-        </div>
+          ) : (
+            <Link to="/login" className="login-btn">Login</Link>
+          )}
+        </nav>
 
         {/* Hamburger */}
         <div className="navMenu">
@@ -128,8 +186,8 @@ export default function Header() {
       {/* Mobile menu */}
       <div className={`mobile-menu ${isOpen ? 'mobile-open' : ''}`}>
         <ul>
-          {pages.map((item, index) => (
-            <Link to={item.to} key={index} onClick={() => setIsOpen(false)}>
+          {pages.map((item, i) => (
+            <Link to={item.to} key={i} onClick={() => setIsOpen(false)}>
               <li className={location.pathname === item.to ? 'active' : ''}>
                 {item.name}
               </li>
@@ -137,31 +195,58 @@ export default function Header() {
           ))}
         </ul>
 
-        <div className="mobile-donate-section">
-          <button
-            className="mobile-donate-toggle"
-            onClick={() => setDMenu(!isDMenu)}
-          >
-            Donate Blood <ChevronDown size={16} className={`chevron ${isDMenu ? 'open' : ''}`} />
-          </button>
-
-          {isDMenu && (
-            <div className="mobile-donate-links">
-              {donateLinks.map((col, i) => (
-                <div key={i}>
-                  <span className="col-heading">{col.heading}</span>
-                  {col.links.map((link, j) => (
-                    <Link to={link.to} key={j} onClick={() => { setIsOpen(false); setDMenu(false); }}>
+        <div className="mobile-donate-groups">
+          {donateGroups.map((group, i) => (
+            <div className="mobile-group" key={i}>
+              <button
+                className="mobile-group-toggle"
+                onClick={() => toggleMobileGroup(i)}
+              >
+                {group.heading}
+                <ChevronDown size={15} className={`chevron ${mobileOpen === i ? 'open' : ''}`} />
+              </button>
+              {mobileOpen === i && (
+                <div className="mobile-group-links">
+                  {group.links.map((link, j) => (
+                    <Link
+                      to={link.to}
+                      key={j}
+                      onClick={() => { setIsOpen(false); setMobileOpen(null); }}
+                    >
                       {link.label}
                     </Link>
                   ))}
                 </div>
-              ))}
+              )}
             </div>
-          )}
+          ))}
         </div>
 
-        <button className="lang-btn mobile-lang">Lang</button>
+        {/* Mobile auth */}
+        {user ? (
+          <div className="mobile-profile">
+            <div className="mobile-profile-info">
+              <span className="avatar">{initials}</span>
+              <div>
+                <strong>{user.username}</strong>
+                <small>{user.email}</small>
+              </div>
+            </div>
+            <Link to="/profile"  className="mobile-profile-link" onClick={() => setIsOpen(false)}>
+              <LayoutDashboard size={15} /> My Dashboard
+            </Link>
+            <Link to="/settings" className="mobile-profile-link" onClick={() => setIsOpen(false)}>
+              <Settings size={15} /> Settings
+            </Link>
+            <button className="mobile-logout" onClick={handleLogout}>
+              <LogOut size={15} /> Logout
+            </button>
+          </div>
+        ) : (
+          <Link to="/login" className="mobile-login-btn" onClick={() => setIsOpen(false)}>
+            <User size={15} /> Login
+          </Link>
+        )}
       </div>
     </>
   );

@@ -22,13 +22,7 @@ export default function Contact() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="contact-hero">
-        <div className="contact-hero-text">
-          <h1>Contact Us</h1>
-          <p>Reach out to Gondar Blood Bank — we're here to help.</p>
-        </div>
-      </section>
+      
 
       {/* Main grid */}
       <section className="contact-main">
@@ -155,12 +149,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="contact-cta">
-        <h2>Ready to Save a Life?</h2>
-        <p>Visit Gondar Blood Bank today and make a difference in your community.</p>
-        <button className="cta-donate">Donate Blood Now</button>
-      </section>
     </>
   );
 }

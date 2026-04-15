@@ -90,11 +90,11 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ── */}
-      <section id="home-first">
+      <section id="home-hero">
         <div className='home-container'>
           <span className="hero-tag"><Droplets size={16} /> Save a Life Today</span>
-          <h1>Donate Blood<br />Save Lives<br />Be a Hero</h1>
-          <p className="hero-sub">Every 2 seconds someone needs blood. Your donation can change everything.</p>
+          <h1>Donate Blood<br />Save Lives<br /> <span className="highlight">Be a Hero</span></h1>
+          <p className="hero-sub">Your contribution provides the vital lifeline Gondar's hospitals depend on every single day. Join a network of thousands ensuring safety and availability when it matters most.</p>
           <div className="hero-btns">
             <button className="donate-btn">Donate Blood</button>
             <Link to="/about" className="learn-btn">Learn More <ArrowRight size={16} /></Link>
