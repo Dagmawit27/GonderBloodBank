@@ -90,14 +90,14 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ── */}
-      <section id="home-hero">
-        <div className='home-container'>
+      <section className="pr-hero">
+        <div className='pr-container pr-hero-inner'>
           <span className="hero-tag"><Droplets size={16} /> Save a Life Today</span>
-          <h1>Donate Blood<br />Save Lives<br /> <span className="highlight">Be a Hero</span></h1>
-          <p className="hero-sub">Your contribution provides the vital lifeline Gondar's hospitals depend on every single day. Join a network of thousands ensuring safety and availability when it matters most.</p>
-          <div className="hero-btns">
-            <button className="donate-btn">Donate Blood</button>
-            <Link to="/about" className="learn-btn">Learn More <ArrowRight size={16} /></Link>
+          <h1 className='home-h1'>Donate Blood Save Lives <span className="pr-accent">Be a Hero</span></h1>
+          <p className="pr-lead">Your contribution provides the vital lifeline Gondar's hospitals depend on every single day. Join a network of thousands ensuring safety and availability when it matters most.</p>
+          <div className="pr-hero-actions">
+            <a href="/make-appointment"  className="pr-btn pr-btn-primary">Donate Blood</a>
+            <a href="/about" className="pr-btn pr-btn-ghost">Learn More <ArrowRight size={16} /></a>
           </div>
         </div>
         <div className="hero-scroll-hint">

@@ -1,5 +1,4 @@
-
-
+import { checkUsername, registerUser } from '../api';
 import { useState } from 'react'
 import './register.css';
 import { Link, useNavigate } from 'react-router-dom'
@@ -41,8 +40,7 @@ const Register = () => {
     setUsernameStatus({ checking: true, available: null, message: 'Checking...' })
 
     try {
-      const response = await fetch(`http://localhost:3000/donor/check-username?username=${encodeURIComponent(username)}`)
-      const data = await response.json()
+      const data = await checkUsername(username)
 
       if (data.success) {
         setUsernameStatus({
@@ -179,15 +177,7 @@ const Register = () => {
 
       console.log('Sending registration data:', registrationData)
 
-      const response = await fetch('http://localhost:3000/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(registrationData)
-      })
-
-      const data = await response.json()
+      const data = await registerUser(registrationData)
       console.log('Registration response:', data)
 
       if (data.success) {

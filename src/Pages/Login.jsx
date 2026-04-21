@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './login.css';
+import { loginUser } from '../api';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -26,12 +27,7 @@ export default function Login() {
     }
     setLoading(true);
     try{
-      const response = await fetch('http://localhost:3000/login', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(form)
-    });
-      const data = await response.json();
+      const data = await loginUser(form);
 
       if(data.success){
         sessionStorage.setItem('username', data.username);

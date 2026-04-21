@@ -13,12 +13,9 @@ import ProtectRoute from './Pages/ProtectRoute'
 import MakeAppointment from './Pages/MakeAppointment'
 import ManageDonations from './Pages/ManageDonations'
 import ManageAppointment from './Pages/ManageAppointment'
-import HowToDonate from './Pages/HowToDonate'
-import Eligibility from './Pages/Eligibility'
-import TypesOfDonations from './Pages/TypesOfDonations'
+import Service from './Pages/Service'
+import Process from './Pages/Process'
 import LearnAboutBlood from './Pages/LearnAboutBlood'
-import HowDonationsHelp from './Pages/HowDonationsHelp'
-import CommentConcerns from './Pages/CommentConcerns'
 
 function App() {
   return (
@@ -29,6 +26,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path='about'   element={<About />} />
           <Route path='news'    element={<News />} />
+          <Route path='service'    element={<Service />} />
           <Route path='blog'    element={<Blog />} />
           <Route path='contact' element={<Contact />} />
           <Route path='register' element={<Register />} />
@@ -46,12 +44,8 @@ function App() {
           } />
 
           {/* Learn routes — public */}
-          <Route path='how-to-donate'      element={<HowToDonate />} />
-          <Route path='eligibility'        element={<Eligibility />} />
-          <Route path='types-of-donations' element={<TypesOfDonations />} />
           <Route path='learn-about-blood'  element={<LearnAboutBlood />} />
-          <Route path='how-donations-help' element={<HowDonationsHelp />} />
-          <Route path='comment-concerns'   element={<CommentConcerns />} />
+          <Route path='process'  element={<Process />} />
         </Route>
       </Routes>
     </HashRouter>

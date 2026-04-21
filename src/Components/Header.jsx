@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { HashLink } from "react-router-hash-link";
 import logo from '../assets/blood-logo.png';
 import { Menu, X, ChevronDown, User, Settings, LogOut, LayoutDashboard } from 'lucide-react';
 import './header.css';
@@ -24,22 +25,22 @@ const donateGroups = [
   {
     heading: 'Learn',
     links: [
-      { label: 'How to Donate',           to: '/how-to-donate' },
-      { label: 'Eligibility Requirements',to: '/eligibility' },
-      { label: 'Types of Blood Donations',to: '/types-of-donations' },
-      { label: 'Learn About Blood',       to: '/learn-about-blood' },
-      { label: 'How Blood Donations Help',to: '/how-donations-help' },
-      { label: 'Comment Concerns',        to: '/comment-concerns' },
+      { label: 'How to Donate',           to: '/learn-about-blood#how-to-donate' },
+      { label: 'Eligibility Requirements',to: '/learn-about-blood#eligibility' },
+      { label: 'Types of Blood Donations',to: '/learn-about-blood#types-of-donations' },
+      { label: 'Learn About Blood',       to: '/learn-about-blood#about-blood' },
+      { label: 'How Blood Donations Help',to: '/learn-about-blood#impact' },
+      { label: 'Comment Concerns',        to: '/learn-about-blood#comments' },
     ],
   },
   {
     heading: 'The Process',
     links: [
-      { label: 'Blood Donation Process',       to: '/donation-process' },
-      { label: 'Donation Process Overview',    to: '/process-overview' },
-      { label: 'Before, During and After',     to: '/before-during-after' },
-      { label: 'What Happens to Donated Blood',to: '/what-happens' },
-      { label: 'Iron and Blood Donation',      to: '/iron-donation' },
+      { label: 'Blood Donation Process',       to: '/process#introduction' },
+      { label: 'Donation Process Overview',    to: '/process#overview' }, 
+      { label: 'Before, During and After',     to: '/process#before-during-after' },
+      { label: 'What Happens to Donated Blood',to: '/process#what-happens' },
+      { label: 'Iron and Blood Donation',      to: '/process#iron' },
     ],
   },
   {
@@ -127,7 +128,7 @@ export default function Header() {
                 </span>
                 <div className="nav-dropdown-panel">
                   {group.links.map((link, j) => (
-                    <Link to={link.to} key={j}>{link.label}</Link>
+                    <HashLink smooth to={link.to} key={j} >{link.label}</HashLink>
                   ))}
                 </div>
               </li>
@@ -208,13 +209,14 @@ export default function Header() {
               {mobileOpen === i && (
                 <div className="mobile-group-links">
                   {group.links.map((link, j) => (
-                    <Link
+                    <HashLink
+                      smooth
                       to={link.to}
                       key={j}
                       onClick={() => { setIsOpen(false); setMobileOpen(null); }}
                     >
                       {link.label}
-                    </Link>
+                    </HashLink>
                   ))}
                 </div>
               )}

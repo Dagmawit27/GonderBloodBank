@@ -71,6 +71,7 @@ export default function About() {
     <>
       {/* Hero */}
       <section className="about-hero">
+        <div className="lrn-hero-glow" aria-hidden="true" />
         <div className="badge fade-in">
           <span className="dot"></span>
           <span className="badge-text">About Gondar Blood Bank</span>
