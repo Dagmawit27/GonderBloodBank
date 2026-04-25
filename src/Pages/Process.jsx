@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Process.css";
+import "./style.css";
+import { HashLink } from "react-router-hash-link";
 
 const sections = [
   { id: "introduction", label: "Introduction" },
@@ -160,55 +162,56 @@ export default function Process() {
   const current = bda[bdaTab];
 
   return (
-    <div className="pr-page">
+    <div className="s-home">
      
       {/* HERO */}
-      <section className="pr-hero">
-        <div className="lrn-hero-glow" aria-hidden="true" />
-        <div className="pr-container pr-hero-inner">
+      <section className="s-hero">
+        <div className="s-container s-hero-inner">
           <div className="badge fade-in">
             <span className="dot"></span>
             <span className="badge-text">The Donation Process</span>
           </div>
-          <h1 className="pr-h1">
+          <h1 className="s-h1">
             A clinical journey from donor to <em>patient</em>.
           </h1>
-          <p className="pr-lead">
+          <p className="s-lead">
             An evidence-based overview of every stage of blood donation — prepared to international
             transfusion standards and designed to inform first-time and returning donors alike.
           </p>
-          <div className="pr-hero-actions">
-            <a href="#overview" className="pr-btn pr-btn-primary">Read the Process</a>
-            <a href="#iron" className="pr-btn pr-btn-ghost">Donor Health Guidance</a>
+          <div className="s-hero-actions">
+            <a href="#overview" className="s-btn s-btn-primary">Read the Process</a>
+            <a href="#iron" className="s-btn s-btn-ghost">Donor Health Guidance</a>
           </div>
         </div>
       </section>
 
       {/* TABS */}
-      <div className="pr-tabs-wrap">
-        <div className="pr-container">
-          <div className="pr-tabs">
+      <div className="s-tabs-wrap">
+        <div className="s-container">
+          <div className="s-tabs">
             {sections.map((s) => (
-              <a
+              <HashLink
                 key={s.id}
-                href={`#${s.id}`}
-                className={`pr-tab ${active === s.id ? "active" : ""}`}
+                smooth
+                to={`/process#${s.id}`}
+                className={`s-tab ${active === s.id ? "active" : ""}`}
+                onClick={()=> setActive(s.id)}
               >
                 {s.label}
-              </a>
+              </HashLink>
             ))}
           </div>
         </div>
       </div>
 
       {/* 1. INTRODUCTION */}
-      <section id="introduction" className="pr-section">
-        <div className="pr-container">
-          <div className="pr-sec-head">
-            <div className="pr-divider" />
-            <span className="pr-kicker">Section I</span>
-            <h2 className="pr-h2">The Blood Donation Process</h2>
-            <p className="pr-sec-sub">
+      <section id="introduction" className="s-section">
+        <div className="s-container">
+          <div className="s-sec-head">
+            <div className="s-divider" />
+            <span className="s-kicker">Section I</span>
+            <h2 className="ss-h2">The Blood Donation Process</h2>
+            <p className="s-sec-sub">
               An introduction to voluntary, non-remunerated blood donation and its role in modern
               healthcare systems.
             </p>
@@ -248,13 +251,13 @@ export default function Process() {
       </section>
 
       {/* 2. OVERVIEW */}
-      <section id="overview" className="pr-section pr-section-alt">
-        <div className="pr-container">
-          <div className="pr-sec-head">
-            <div className="pr-divider" />
-            <span className="pr-kicker">Section II</span>
-            <h2 className="pr-h2">Donation Process Overview</h2>
-            <p className="pr-sec-sub">
+      <section id="overview" className="s-section s-section-alt">
+        <div className="s-container">
+          <div className="s-sec-head">
+            <div className="s-divider" />
+            <span className="s-kicker">Section II</span>
+            <h2 className="ss-h2">Donation Process Overview</h2>
+            <p className="s-sec-sub">
               The complete visit lasts approximately one hour. The donation itself takes less than
               ten minutes.
             </p>
@@ -278,13 +281,13 @@ export default function Process() {
       </section>
 
       {/* 3. BEFORE / DURING / AFTER */}
-      <section id="before-during-after" className="pr-section">
-        <div className="pr-container">
-          <div className="pr-sec-head">
-            <div className="pr-divider" />
-            <span className="pr-kicker">Section III</span>
-            <h2 className="pr-h2">Before, During & After</h2>
-            <p className="pr-sec-sub">
+      <section id="before-during-after" className="s-section">
+        <div className="s-container">
+          <div className="s-sec-head">
+            <div className="s-divider" />
+            <span className="s-kicker">Section III</span>
+            <h2 className="ss-h2">Before, During & After</h2>
+            <p className="s-sec-sub">
               Guidance for every phase of your donation visit, based on international best practice
               for donor care.
             </p>
@@ -318,13 +321,13 @@ export default function Process() {
       </section>
 
       {/* 4. WHAT HAPPENS */}
-      <section id="what-happens" className="pr-section pr-section-alt">
-        <div className="pr-container">
-          <div className="pr-sec-head">
-            <div className="pr-divider" />
-            <span className="pr-kicker">Section IV</span>
-            <h2 className="pr-h2">What Happens to Donated Blood</h2>
-            <p className="pr-sec-sub">
+      <section id="what-happens" className="s-section s-section-alt">
+        <div className="s-container">
+          <div className="s-sec-head">
+            <div className="s-divider" />
+            <span className="s-kicker">Section IV</span>
+            <h2 className="ss-h2">What Happens to Donated Blood</h2>
+            <p className="s-sec-sub">
               From collection to clinical use, every unit follows a documented chain of custody
               spanning testing, processing, and distribution.
             </p>
@@ -366,13 +369,13 @@ export default function Process() {
       </section>
 
       {/* 5. IRON */}
-      <section id="iron" className="pr-section">
-        <div className="pr-container">
-          <div className="pr-sec-head">
-            <div className="pr-divider" />
-            <span className="pr-kicker">Section V</span>
-            <h2 className="pr-h2">Iron & Blood Donation</h2>
-            <p className="pr-sec-sub">
+      <section id="iron" className="s-section">
+        <div className="s-container">
+          <div className="s-sec-head">
+            <div className="s-divider" />
+            <span className="s-kicker">Section V</span>
+            <h2 className="ss-h2">Iron & Blood Donation</h2>
+            <p className="s-sec-sub">
               Maintaining adequate iron stores is essential for the long-term health of regular
               donors and for the quality of every contribution.
             </p>
@@ -428,19 +431,19 @@ export default function Process() {
       </section>
 
       {/* CTA */}
-      <section className="pr-section">
-        <div className="pr-container">
-          <div className="pr-cta">
+      <section className="s-section">
+        <div className="s-container">
+          <div className="s-cta">
             <div>
-              <h2 className="pr-cta-title">Become a regular donor.</h2>
-              <p className="pr-cta-sub">
+              <h2 className="s-cta-title">Become a regular donor.</h2>
+              <p className="s-cta-sub">
                 Schedule your next appointment and join an international community committed to
                 voluntary, life-saving donation.
               </p>
             </div>
-            <div className="pr-cta-actions">
-              <a href="#" className="pr-btn pr-btn-white">Book Appointment</a>
-              <a href="/learn" className="pr-btn pr-btn-outline" style={{ borderColor: "#fff", color: "#fff" }}>
+            <div className="s-cta-actions">
+              <a href="#" className="s-btn s-btn-white">Book Appointment</a>
+              <a href="/learn" className="s-btn s-btn-outline" style={{ borderColor: "#fff", color: "#fff" }}>
                 Learn More
               </a>
             </div>
@@ -448,7 +451,7 @@ export default function Process() {
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* FOOTER 
       <footer className="pr-footer">
         <div className="pr-container">
           <div className="pr-footer-inner">
@@ -491,7 +494,7 @@ export default function Process() {
             © {new Date().getFullYear()} Gondar Blood Bank. All rights reserved.
           </div>
         </div>
-      </footer>
+      </footer>*/}
     </div>
   );
 }

@@ -17,9 +17,8 @@ const donateGroups = [
   {
     heading: 'My Donations',
     links: [
-      { label: 'Manage My Donations',        to: '/manage-donations' },
-      { label: 'Schedule an Appointment',    to: '/make-appointment' },
-      { label: 'Manage Existing Appointment',to: '/manage-appointment' },
+      { label: 'Schedule an Appointment',    to: '/make-appointment#appointment-form' },
+      { label: 'Manage Existing Appointment',to: '/make-appointment#manage-appointment' },
     ],
   },
   {
@@ -105,7 +104,21 @@ export default function Header() {
     : '';
 
   return (
-    <>
+    <div className='header '>
+     {/* Top utility bar */}
+      <div className="h-topbar">
+        <div className="h-topbar-inner">
+          <div>
+            📞 24/7 Emergency Hotline: <a href="tel:+251000000000">+251 (0) 58 111 0000</a>
+            &nbsp;·&nbsp; ✉ <a href="mailto:contact@gonderbloodbank.org">contact@gonderbloodbank.org</a>
+          </div>
+          <div className="h-topbar-langs">
+            <span className="active">EN</span>
+            <span>አማ</span>
+            <span>FR</span>
+          </div>
+        </div>
+      </div>
       <div className="navbar">
         <div className="logo-wrap">
           <div className="logo">
@@ -250,6 +263,6 @@ export default function Header() {
           </Link>
         )}
       </div>
-    </>
+    </div>
   );
 }

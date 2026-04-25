@@ -145,26 +145,26 @@ export default function LearnAboutBlood() {
   };
 
   return (
-    <div className="lrn-page pr-page">
+    <div className="lrn-home s-home">
      
 
       {/* HERO */}
-      <section className="pr-hero">
-        <div className="pr-container pr-hero-inner">
+      <section className="s-hero">
+        <div className="s-container s-hero-inner">
           <div className="badge fade-in">
             <span className="dot"></span>
             <span className="badge-text">LEARN</span>
           </div>
-          <h1 className="pr-h1">
-            Everything you need to know about <span className="pr-accent">donating blood</span>
+          <h1 className="s-h1">
+            Everything you need to know about <em>donating blood</em>
           </h1>
-          <p className="pr-lead">
+          <p className="s-lead">
             From the donation process to eligibility, blood types, and the lives you'll change —
             here's the full picture in one place.
           </p>
-          <div className="pr-hero-actions">
-            <a href="#how-to-donate" className="pr-btn pr-btn-primary">Start Reading</a>
-            <a href="#impact" className="pr-btn pr-btn-ghost">See the Impact →</a>
+          <div className="s-hero-actions">
+            <a href="#how-to-donate" className="s-btn s-btn-primary">Start Reading</a>
+            <a href="#impact" className="s-btn s-btn-ghost">See the Impact →</a>
           </div>
         </div>
       </section>
@@ -172,15 +172,15 @@ export default function LearnAboutBlood() {
       {/* SECTION TABS */}
 
       
-      <div className="pr-tabs-wrap">
-        <div className="pr-container">
-          <div className="pr-tabs">
+      <div className="s-tabs-wrap">
+        <div className="s-container">
+          <div className="s-tabs">
             {sections.map((s) => (
               <HashLink
                 key={s.id}
                 smooth
                 to={`/learn-about-blood#${s.id}`}
-                className={`pr-tab ${active === s.id ? "active" : ""}`}
+                className={`s-tab ${active === s.id ? "active" : ""}`}
                 onClick={() => setActive(s.id)}
               >
                 {s.label}
@@ -191,12 +191,13 @@ export default function LearnAboutBlood() {
       </div>
 
       {/* 1. HOW TO DONATE */}
-      <section id="how-to-donate" className="pr-section">
-        <div className="pr-container">
-          <div className="pr-sec-head">
-            <span className="pr-kicker">Step 01</span>
-            <h2 className="pr-h2">How to Donate</h2>
-            <p className="pr-sec-sub">
+      <section id="how-to-donate" className="s-section">
+        <div className="s-container">
+          <div className="s-sec-head">
+            <div className="s-divider" />
+            <span className="s-kicker">Step 01</span>
+            <h2 className="ss-h2">How to Donate</h2>
+            <p className="s-sec-sub">
               The whole visit takes about an hour. The donation itself? Less than 10 minutes.
             </p>
           </div>
@@ -214,12 +215,13 @@ export default function LearnAboutBlood() {
       </section>
 
       {/* 2. ELIGIBILITY */}
-      <section id="eligibility" className="lrn-section lrn-section-alt">
-        <div className="lrn-container">
-          <div className="lrn-sec-head">
-            <span className="lrn-kicker">Step 02</span>
-            <h2 className="lrn-h2">Eligibility Requirements</h2>
-            <p className="lrn-sec-sub">
+      <section id="eligibility" className="s-section s-section-alt">
+        <div className="s-container">
+          <div className="s-sec-head">
+            <div className="s-divider" />
+            <span className="s-kicker">Step 02</span>
+            <h2 className="ss-h2">Eligibility Requirements</h2>
+            <p className="s-sec-sub">
               Most healthy adults can donate. Here's a quick check before your visit.
             </p>
           </div>
@@ -252,12 +254,13 @@ export default function LearnAboutBlood() {
       </section>
 
       {/* 3. TYPES */}
-      <section id="types-of-donations" className="lrn-section">
-        <div className="lrn-container">
-          <div className="lrn-sec-head">
-            <span className="lrn-kicker">Step 03</span>
-            <h2 className="lrn-h2">Types of Blood Donations</h2>
-            <p className="lrn-sec-sub">
+      <section id="types-of-donations" className="s-section">
+        <div className="s-container">
+          <div className="s-sec-head">
+            <div className="s-divider" />
+            <span className="s-kicker">Step 03</span>
+            <h2 className="ss-h2">Types of Blood Donations</h2>
+            <p className="s-sec-sub">
               Different patients need different parts of your blood. Choose what fits you.
             </p>
           </div>
@@ -285,12 +288,13 @@ export default function LearnAboutBlood() {
       </section>
 
       {/* 4. ABOUT BLOOD */}
-      <section id="about-blood" className="lrn-section lrn-section-alt">
-        <div className="lrn-container">
-          <div className="lrn-sec-head">
-            <span className="lrn-kicker">Step 04</span>
-            <h2 className="lrn-h2">Learn About Blood</h2>
-            <p className="lrn-sec-sub">
+      <section id="about-blood" className="s-section s-section-alt">
+        <div className="s-container">
+          <div className="s-sec-head">
+            <div className="s-divider" />
+            <span className="s-kicker">Step 04</span>
+            <h2 className="ss-h2">Learn About Blood</h2>
+            <p className="s-sec-sub">
               There are 8 main blood types. Knowing yours helps the right patient at the right time.
             </p>
           </div>
@@ -327,12 +331,13 @@ export default function LearnAboutBlood() {
       </section>
 
       {/* 5. IMPACT */}
-      <section id="impact" className="lrn-section">
-        <div className="lrn-container">
-          <div className="lrn-sec-head">
-            <span className="lrn-kicker">Step 05</span>
-            <h2 className="lrn-h2">How Blood Donations Help</h2>
-            <p className="lrn-sec-sub">
+      <section id="impact" className="s-section">
+        <div className="s-container">
+          <div className="s-sec-head">
+            <div className="s-divider" />
+            <span className="s-kicker">Step 05</span>
+            <h2 className="ss-h2">How Blood Donations Help</h2>
+            <p className="s-sec-sub">
               Every donation has a direct, measurable impact on real people in your community.
             </p>
           </div>
@@ -363,12 +368,13 @@ export default function LearnAboutBlood() {
 
 
       {/* 6. Comments & Concerns */}
-      <section id="comments" className="lrn-section">
-        <div className="lrn-container">
-          <div className="lrn-sec-head">
-            <span className="lrn-kicker">Step 06</span>
-            <h2 className="lrn-h2">Comments & Concerns</h2>
-            <p className="lrn-sec-sub">
+      <section id="comments" className="s-section">
+        <div className="s-container">
+          <div className="s-sec-head">
+            <div className="s-divider" />
+            <span className="s-kicker">Step 06</span>
+            <h2 className="ss-h2">Comments & Concerns</h2>
+            <p className="s-sec-sub">
               Have a question or concern? We're here to help.
             </p>
           </div>
@@ -406,16 +412,16 @@ export default function LearnAboutBlood() {
       </section>
 
       {/* CTA */}
-      <section className="lrn-section">
-        <div className="lrn-container">
-          <div className="lrn-cta">
+      <section className="s-section">
+        <div className="s-container">
+          <div className="s-cta">
             <div>
-              <h2 className="lrn-cta-title">Ready to make a difference?</h2>
-              <p className="lrn-cta-sub">
+              <h2 className="s-cta-title">Ready to make a difference?</h2>
+              <p className="s-cta-sub">
                 Now that you know the process, take the next step and book your donation.
               </p>
             </div>
-            <a href="#" className="lrn-btn lrn-btn-white">Donate Now</a>
+            <a href="#" className="s-btn s-btn-white">Donate Now</a>
           </div>
         </div>
       </section>

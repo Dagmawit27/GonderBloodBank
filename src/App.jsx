@@ -11,8 +11,6 @@ import Login from './Pages/Login'
 import ScrollToTop from './Pages/ScrollToTop'
 import ProtectRoute from './Pages/ProtectRoute'
 import MakeAppointment from './Pages/MakeAppointment'
-import ManageDonations from './Pages/ManageDonations'
-import ManageAppointment from './Pages/ManageAppointment'
 import Service from './Pages/Service'
 import Process from './Pages/Process'
 import LearnAboutBlood from './Pages/LearnAboutBlood'
@@ -25,7 +23,7 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='about'   element={<About />} />
-          <Route path='news'    element={<News />} />
+          <Route path='newsss'    element={<News />} />
           <Route path='service'    element={<Service />} />
           <Route path='blog'    element={<Blog />} />
           <Route path='contact' element={<Contact />} />
@@ -35,12 +33,6 @@ function App() {
           {/* Donation routes */}
           <Route path='make-appointment' element={
             <ProtectRoute><MakeAppointment /></ProtectRoute>
-          } />
-          <Route path='manage-donations' element={
-            <ProtectRoute><ManageDonations /></ProtectRoute>
-          } />
-          <Route path='manage-appointment' element={
-            <ProtectRoute><ManageAppointment /></ProtectRoute>
           } />
 
           {/* Learn routes — public */}

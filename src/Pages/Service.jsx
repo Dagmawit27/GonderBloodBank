@@ -44,36 +44,35 @@ const highlights = [
 export default function Service() {
  
   return (
-    <div className="gbb-page">
+    <div className="s-home">
       {/* HERO */}
-      <section className="pr-hero">
-        <div className="lrn-hero-glow" aria-hidden="true" />
-        <div className="pr-container pr-hero-inner">
+      <section className="s-hero">
+        <div className="s-container s-hero-inner">
           <div className="badge fade-in">
             <span className="dot"></span>
             <span className="badge-text">OUR SERVICES</span>
           </div>
-          <h1 className="pr-h1">
-            Services that keep <span className="pr-accent">Gondar's</span> hospitals supplied
+          <h1 className="s-h1">
+            Services that keep <em>Gondar's</em> hospitals supplied
           </h1>
-          <p className="pr-lead">
+          <p className="s-lead">
             From scheduled donation drives to round-the-clock emergency dispatch, we
             connect generous donors with the patients who need them most — safely,
             quickly, and with care.
           </p>
-          <div className="pr-hero-actions">
-            <a href="#" className="pr-btn pr-btn-primary">Donate Blood</a>
-            <a href="#services" className="pr-btn pr-btn-ghost">Learn More →</a>
+          <div className="s-hero-actions">
+            <a href="#" className="s-btn s-btn-primary">Donate Blood</a>
+            <a href="#services" className="s-btn s-btn-ghost">Learn More →</a>
           </div>
         </div>
       </section>
 
       {/* SERVICES GRID */}
-      <section id="services" className="gbb-section">
-        <div className="gbb-container">
-          <div className="gbb-section-head">
-            <h2 className="gbb-h2">What we offer</h2>
-            <p className="gbb-section-sub">
+      <section id="services" className="s-section">
+        <div className="s-container">
+          <div className="s-section-head">
+            <h2 className="ss-h2">What we offer</h2>
+            <p className="s-section-sub">
               Six core services that power blood supply across the Gondar region.
             </p>
           </div>
@@ -93,7 +92,7 @@ export default function Service() {
 
       {/* HIGHLIGHTS */}
       <section className="gbb-strip">
-        <div className="gbb-container gbb-strip-inner">
+        <div className="s-container gbb-strip-inner">
           {highlights.map((h) => (
             <div key={h.label} className="gbb-stat">
               <div className="gbb-stat-value">{h.value}</div>
@@ -104,16 +103,16 @@ export default function Service() {
       </section>
 
       {/* CTA */}
-      <section className="gbb-section">
-        <div className="gbb-container">
-          <div className="gbb-cta">
+      <section className="s-section">
+        <div className="s-container">
+          <div className="s-cta">
             <div>
-              <h2 className="gbb-cta-title">Ready to save a life?</h2>
-              <p className="gbb-cta-sub">
+              <h2 className="s-cta-title">Ready to save a life?</h2>
+              <p className="s-cta-sub">
                 One donation can save up to three lives. Book your appointment today.
               </p>
             </div>
-            <a href="#" className="gbb-btn gbb-btn-white">Donate Now</a>
+            <a href="#" className="s-btn s-btn-white">Donate Now</a>
           </div>
         </div>
       </section>

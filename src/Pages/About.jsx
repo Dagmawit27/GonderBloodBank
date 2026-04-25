@@ -1,4 +1,5 @@
 import './about.css';
+import './style.css';
 import { useState } from 'react';
 import { Target, Eye, Star, History, ChevronRight } from 'lucide-react';
 import pic from '../assets/gonder.jpg';
@@ -68,34 +69,29 @@ export default function About() {
   const Icon = Content.icon;
 
   return (
-    <>
+    <div className='s-home'>
       {/* Hero */}
-      <section className="about-hero">
-        <div className="lrn-hero-glow" aria-hidden="true" />
-        <div className="badge fade-in">
-          <span className="dot"></span>
-          <span className="badge-text">About Gondar Blood Bank</span>
-        </div>
+      <section className="s-hero">
+        <div className="s-container s-hero-inner">
+          <div className="badge fade-in">
+            <span className="dot"></span>
+            <span className="badge-text">About Gondar Blood Bank</span>
+          </div>
 
-        <h1 className="hero-title fade-in">
-          Pure intentions. <br/>
-          Strong clinical care. <br/>
-          <span className="highlight">Saving lives.</span>
-        </h1>
+          <h1 className="s-h1 fade-in">
+            Pure intentions. <br/>
+            Strong clinical care. <br/>
+            <em>Saving lives.</em>
+          </h1>
 
-        <p className="hero-text fade-in delay-1">
-          Gondar Blood Bank helps our community bridge the gap between medical need and life-saving supply with precision, safety, and unwavering commitment. We are a specialized medical team dedicated to supporting local hospitals.
-        </p>
+          <p className="s-lead fade-in delay-1">
+            Gondar Blood Bank helps our community bridge the gap between medical need and life-saving supply with precision, safety, and unwavering commitment. We are a specialized medical team dedicated to supporting local hospitals.
+          </p>
 
-        <div className="hero-buttons fade-in delay-2">
-          <button className="btn-primary">
-            Donate Now
-            <span className="arrow">→</span>
-          </button>
-
-          <button className="btn-secondary">
-            View Impact
-          </button>
+          <div className="s-hero-actions fade-in delay-2">
+            <a href="#" className="s-btn s-btn-primary">Donate Blood</a>
+            <a href="#services" className="s-btn s-btn-ghost">View Impact →</a>
+          </div>
         </div>
       </section>
 
@@ -174,11 +170,19 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="about-cta">
-        <h2>Join Our Mission</h2>
-        <p>Every donation saves up to three lives. Be part of the change.</p>
-        <button className="about-donate-btn">Donate Blood Today</button>
+      <section className="s-section">
+        <div className="s-container">
+          <div className="s-cta">
+            <div>
+              <h2 className="s-cta-title">Join Our Mission</h2>
+              <p className="s-cta-sub">
+                Every donation saves up to three lives. Be part of the change.
+              </p>
+            </div>
+            <a href="#" className="s-btn s-btn-white">Donate Blood Today</a>
+          </div>
+        </div>
       </section>
-    </>
+    </div>
   );
 }

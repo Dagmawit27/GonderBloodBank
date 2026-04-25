@@ -1,4 +1,5 @@
 import './home.css';
+import './style.css';
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -13,6 +14,8 @@ import d1 from '../assets/d1.jpg';
 import d2 from '../assets/d2.jpg';
 import d3 from '../assets/d3.jpg'; 
 import d4 from '../assets/d4.webp';
+
+import "./style.css"
 
 /* ── animated counter hook ── */
 function useCounter(target, duration = 2000, start = false) {
@@ -88,8 +91,8 @@ export default function Home() {
   const [statsRef, statsInView] = useInView(0.3);
 
   return (
-    <>
-      {/* ── HERO ── */}
+    <div className='s-home'>
+      {/* ── HERO ──
       <section className="pr-hero">
         <div className='pr-container pr-hero-inner'>
           <span className="hero-tag"><Droplets size={16} /> Save a Life Today</span>
@@ -103,6 +106,30 @@ export default function Home() {
         <div className="hero-scroll-hint">
           <span>Scroll down</span>
           <div className="scroll-line" />
+        </div>
+      </section> */}
+
+       {/* Hero */}
+      <section className="s-hero">
+        <div className="s-container s-hero-inner">
+            <div className="badge fade-in">
+              <span className="dot"></span>
+              <span className="badge-text">Urgent need · O− and AB+ donors</span>
+            </div>
+            <h1 className='s-h1'>
+              Every drop is a <em>promise</em> — <br />
+              the gift of life, given with care.
+            </h1>
+            <p className="s-lead">
+              Gonder Blood Bank is committed to providing safe, sufficient, and timely blood
+              supply to hospitals across Ethiopia. Our work is guided by international standards
+              and powered by voluntary donors who choose, every day, to save a life.
+            </p>
+            <div className="s-hero-actions">
+              <Link to="/service" className="s-btn s-btn-primary">Become a Donor</Link>
+              <Link to="/process" className="s-btn s-btn-ghost">Learn the Process</Link>
+            </div>
+           
         </div>
       </section>
 
@@ -136,6 +163,134 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
+       {/* Highlights / other pages */}
+      <section className="s-section">
+        <div className="s-sec-head">
+          <div className="badge fade-in">
+            <span className="dot"></span>
+            <span className="badge-text">Explore</span>
+          </div>
+          <h2 className="ss-h2">What we do, and how you can take part</h2>
+          <p className="s-sec-sub">
+            From donor recruitment to laboratory screening and hospital distribution,
+            our work spans the entire safe-blood value chain. Discover how each part
+            of our mission supports patients across the region.
+          </p>
+        </div>
+
+        <div className="gbb-highlights">
+          <Link to="/service" className="gbb-card">
+            <div className="gbb-card-icon">✚</div>
+            <h3>Our Services</h3>
+            <p>
+              Donation drives, mobile units, screening laboratories, and 24/7 emergency
+              supply for partner hospitals across the region.
+            </p>
+            <span className="gbb-card-link">Explore services</span>
+          </Link>
+
+          <Link to="/learn" className="gbb-card">
+            <div className="gbb-card-icon">◎</div>
+            <h3>Learn About Donation</h3>
+            <p>
+              Eligibility, blood types, and the science of donation — clear, accurate
+              information to help you prepare with confidence.
+            </p>
+            <span className="gbb-card-link">Start learning</span>
+          </Link>
+
+          <Link to="/process" className="gbb-card">
+            <div className="gbb-card-icon">❖</div>
+            <h3>The Donation Process</h3>
+            <p>
+              A step-by-step guide to what happens before, during, and after your visit,
+              and how your donation is tested and delivered.
+            </p>
+            <span className="gbb-card-link">View the process</span>
+          </Link>
+
+          <Link to="/blog" className="gbb-card">
+            <div className="gbb-card-icon">✎</div>
+            <h3>Community Journal</h3>
+            <p>
+              Stories from donors, recipients, and partner clinicians — a public
+              record of the lives shaped by voluntary giving.
+            </p>
+            <span className="gbb-card-link">Read the journal</span>
+          </Link>
+
+          <Link to="/service" className="gbb-card">
+            <div className="gbb-card-icon">⚑</div>
+            <h3>Host a Drive</h3>
+            <p>
+              Universities, employers, and faith communities can partner with us
+              to host on-site donation events — fully equipped and supervised.
+            </p>
+            <span className="gbb-card-link">Become a partner</span>
+          </Link>
+
+          <Link to="/learn" className="gbb-card">
+            <div className="gbb-card-icon">♥</div>
+            <h3>Why It Matters</h3>
+            <p>
+              A single donation can save up to three lives. Learn how your
+              contribution supports trauma care, surgery, and maternal health.
+            </p>
+            <span className="gbb-card-link">See the impact</span>
+          </Link>
+        </div>
+      </section>
+
+      {/* About / Mission */}
+      <section className="gbb-about-wrap">
+        <div className="gbb-about">
+          <div>
+            <div className="badge fade-in">
+              <span className="dot"></span>
+              <span className="badge-text">About Us</span>
+            </div>
+            <h2>A trusted institution for safe blood, built on transparency and care.</h2>
+            <p>
+              Founded in service to the public health system of Gondar and the wider
+              Amhara region, our blood bank operates under strict regulatory oversight
+              and is committed to international best practices in collection, testing,
+              processing, and distribution.
+            </p>
+            <p>
+              We believe that a strong, voluntary donor community is the foundation
+              of a resilient health system. Our work is guided by dignity, equity,
+              and the simple conviction that no patient should be turned away for
+              lack of blood.
+            </p>
+            <Link to="/service" className="s-btn s-btn-primary" style={{ marginTop: 14 }}>
+              Get involved
+            </Link>
+          </div>
+          <div className="gbb-pillars">
+            <div className="gbb-pillar">
+              <strong>Safety First</strong>
+              <span>All donations screened against WHO-recommended panel.</span>
+            </div>
+            <div className="gbb-pillar">
+              <strong>Voluntary Donors</strong>
+              <span>100% of our supply comes from non-remunerated donors.</span>
+            </div>
+            <div className="gbb-pillar">
+              <strong>Equitable Access</strong>
+              <span>Distribution prioritised by clinical need, not status.</span>
+            </div>
+            <div className="gbb-pillar">
+              <strong>Transparent Reporting</strong>
+              <span>Annual public reports on collection and impact.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
       
       {/* ── ABOUT STRIP ── */}
       <section className="about-strip">
@@ -194,12 +349,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CTA BANNER ── */}
-      <section className="cta-banner">
-        <h2>Ready to Save a Life?</h2>
-        <p>Join thousands of heroes who donate blood every day.</p>
-        <button className="cta-donate-btn">Donate Blood Now</button>
+      {/* CTA */}
+      <section className="s-section">
+        <div className="s-container">
+          <div className="s-cta">
+            <div>
+              <h2 className="s-cta-title">Become a regular donor.</h2>
+              <p className="s-cta-sub">
+                Schedule your next appointment and join an international community committed to
+                voluntary, life-saving donation.
+              </p>
+            </div>
+            <div className="s-cta-actions">
+              <a href="#" className="s-btn s-btn-white">Book Appointment</a>
+              <a href="/learn" className="s-btn s-btn-outline" style={{ borderColor: "#fff", color: "#fff" }}>
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
-    </>
+    </div>
   );
 }
