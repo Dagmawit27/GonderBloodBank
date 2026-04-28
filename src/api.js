@@ -1,5 +1,8 @@
 const BASE_URL = import.meta.env.VITE_API_URL;
 
+if (!BASE_URL) {
+  console.error("VITE_API_URL is not defined");
+}
 export const checkUsername = async (username) => {
   const response = await fetch(
     `${BASE_URL}/donor/check-username?username=${encodeURIComponent(username)}`
